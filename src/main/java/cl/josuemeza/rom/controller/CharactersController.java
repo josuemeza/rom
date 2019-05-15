@@ -20,6 +20,8 @@ public class CharactersController {
     @Autowired
     private CharacterRepository repository;
 
+
+
     @GetMapping("")
     public ResponseEntity index(Pageable pageable) {
         List<Character> characters = repository.findAll(pageable).getContent();

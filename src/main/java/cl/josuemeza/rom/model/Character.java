@@ -42,9 +42,6 @@ public class Character extends BaseModel implements Fighter {
         return level;
     }
 
-    public Integer getHealth() {
-        return health;
-    }
 
     public Integer getMaxHealth() {
         return BASE_HEALTH;
@@ -64,18 +61,23 @@ public class Character extends BaseModel implements Fighter {
                 "id: " + id +
                 ", name: '" + name + '\'' +
                 ", level: " + level +
+
                 '}';
     }
 
     @Override
-    public Integer attack(Fighter enemy) {
-        return enemy.defend(BASE_ATTACK);
+    public Integer getAttack() {
+        return BASE_ATTACK;
     }
 
     @Override
-    public Integer defend(Integer attack) {
-        Integer damage = Math.max(0, attack - BASE_DEFENSE);
-        health = Math.max(0, health - damage);
-        return damage;
+    public Integer getDefense() {
+        return BASE_DEFENSE;
+    }
+
+    @Override
+    public void defend(Integer attack) {
+        Integer damage = Math.max(0, attack - this.getDefense());
+        this.health = Math.max(0, health - damage);;
     }
 }

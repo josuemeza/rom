@@ -2,7 +2,8 @@ package cl.josuemeza.rom.model;
 
 public interface Fighter {
 
-    Integer attack(Fighter enemy);
-    Integer defend(Integer damage);
+    Integer getAttack();
+    Integer getDefense();
+    void defend(Integer attack);
 
 }
